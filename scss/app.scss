@@ -1,0 +1,544 @@
+@import '_variables';
+@import '_mixins';
+
+*{
+    box-sizing : border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: $gris;
+}
+header{
+    width: 100%;
+    background: $indigoHeader;
+    padding: 15px;
+    color: $blanco;
+    max-height: 250px; 
+}
+.contenido{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.foto-cv{
+    border-radius: 50%;
+    border: 1px solid rgba($gris, .6);
+    overflow: hidden;
+    img{
+   
+        vertical-align: top;
+        @include tablet() {
+            width: 100%;
+        }
+    }
+}
+.titulo{
+    text-align: center;
+    text-transform: uppercase;
+    h2{
+        font-weight: 500;
+        font-size: 1.8em;
+        margin-bottom: 5px;
+        @include tablet() {
+            font-size: 1.3em;
+        }
+    }
+}
+.menu-barra{
+    left: 0;
+    cursor: pointer;
+    background: rgba(255,0,0, .7);
+    padding: 15px;
+    display: inline-block;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    border-radius: 4px;
+}
+.menu-open{
+    color: $blanco;
+}
+.menu-open .hamburger{
+    transform: rotate(45deg);
+}
+.menu-open .hamburger::before{
+    opacity: 0;
+}
+.menu-open .hamburger::after{
+    transform: translateY(-3px) rotate(-90deg);
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+    
+    content: '';
+    display: block;
+    background: $black;
+    height: 3px;
+    width: 2em;
+    border-radius: 3px;
+    transition: all ease-in-out .7s;
+}
+.hamburger::before{
+    transform: translateY(-6px);
+}
+.hamburger::after{
+    transform: translateY(3px);
+}
+.menu{
+    width: 100%;  
+    
+    nav{
+        background: rgba($indigoHeader, .6);   
+        width: 50%;
+        margin: auto;
+        display: flex;
+        
+        flex-direction: column;
+        position: absolute;
+        position: fixed;
+        left: -100%;
+        height: 100%;
+        @include tablet() {
+        background: rgba($indigoHeader, .6);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1px;
+        position: absolute;
+        position: fixed;
+        left: -100%;
+        }
+        a{
+            
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: $blanco;
+            border-bottom: 1px solid rgba($black, .4);
+            text-transform: uppercase;
+            font-size: 1.3em;
+            &:hover{
+                //background: $blanco;
+                //color:$black;
+                border-bottom: 1px solid rgba($black, .4)
+            }
+            @include tablet() {
+                 
+                border-bottom: 1px solid rgba($gris, .6)
+                }
+        }
+    }
+}
+.linea{
+    content: '';
+    display: block;
+    background: $blanco;
+    height: 4px;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: 20px;
+    left: -100%;
+    position: absolute;
+
+}
+.mula{
+    margin-top: 5em;
+    
+}
+.Acerca-de{
+    width: 90%;
+    background: white;
+    margin: 1em auto;
+    padding: 1.2em;
+    @include tablet() {
+        width: 95%;
+    }
+    h3{
+        margin: .6em 0;
+        color: $indigoHeader;
+    }
+
+}
+.span{
+    margin: 1px;
+    display: inline;
+    background: $indigoHeader;
+    color: $blanco;
+    padding: 5px;
+    border-radius: 8px;
+    list-style: none;
+    display: inline-block;
+    @include tablet() {
+        font-size: 15px;
+    }
+}
+.Parrafo{
+    line-height: 27px;
+    text-align: justify;
+    @include tablet() {
+        font-size: 14px;
+    }
+}
+.Educacion{
+    width: 90%;
+    background: white;
+    margin: 1em auto;
+    padding: 1.2em;
+    @include tablet() {
+        width: 95%;
+    }
+    h3{
+        margin: .6em 0;
+        color: $indigoHeader;
+    }
+
+}
+.ul-formacion{
+    list-style: none;
+    padding: 20px;
+    
+    @include tablet() {
+        font-size: 15px;
+    }
+}
+.ul-hijo{
+    padding: 15px;
+    list-style: none;
+    font-weight: normal;
+    color: $black;
+}
+.fa{
+    text-decoration: none;
+    color: #000;
+}
+.li-padre{
+    font-weight: bold;
+    color: $indigoHeader;
+    margin-left: 10px;
+}
+.line{
+    padding: 0.2em 0em .2em 0.6em;
+        border-bottom: 0px;
+        border-left: 3px solid silver;
+        transition: all 0.19s;
+        margin-bottom: 0.4em;
+}
+.line:hover {
+    border-left: 3px solid #000;
+    border-bottom: 0px;
+}
+/* HABILIDADES*/
+.Habilidades{
+    width: 90%;
+    background: $blanco;
+    margin: auto;
+    padding: 30px;
+    h3{
+        color: $indigoHeader;
+        margin-bottom: 20px;
+    }
+}
+.imagenes{
+    width: 90%;
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    
+    @include tablet() {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        }
+    .html5{
+        
+       @include cajas();
+       @include desktop() {
+        width: 30.2%;  
+    }  
+            @include tablet() {
+            width: 95%;
+            } 
+         
+        img{
+            
+            width: 40%;
+            @include tablet() {
+                width: 40%;
+                }    
+        }
+    }
+}
+.css3{  
+    @include cajas();
+    @include desktop() {
+        width: 30.2%;  
+    } 
+    @include tablet() {
+    width: 95%;
+    }   
+   
+img{ 
+    width: 40%;
+    @include desktop() {
+        width: 30.5%;  
+    }     
+    @include tablet() {
+        width: 40%;
+        } 
+}
+}
+.js{
+      
+    @include cajas();
+    @include desktop() {
+        width: 30.2%;  
+    }  
+    @include tablet() {
+    width: 95%;
+    } 
+    
+img{
+    
+    width: 40%;
+    @include tablet() {
+        width: 40%;
+        }    
+}
+}
+.sql{
+      
+    @include cajas();
+    @include desktop() {
+        width: 30.2%;  
+    }   
+    @include tablet() {
+    width: 95%;
+    }
+  
+img{
+    
+    width: 40%;
+    @include tablet() {
+        width: 40%;
+        }   
+}
+}
+.csharp{
+      
+    @include cajas();
+    @include desktop() {
+        width: 30.2%;  
+    }    
+    @include tablet() {
+    width: 95%;
+    } 
+
+img{
+    
+    width: 40%;
+    @include tablet() {
+        width: 40%;
+        }    
+}
+}
+.proximos{  
+    @include cajas();
+    opacity: .5; 
+    @include desktop() {
+        width: 30.2%;  
+    } 
+    @include tablet() {
+    width: 95%;
+    }   
+
+img{
+    width: 30%;
+    @include tablet() {
+        width: 40%;
+        } 
+}
+p{
+    width: 50%;
+    font-weight: 300;
+    @include tablet() {
+        font-weight: bold;
+        font-size: 13px;
+        }   
+}
+}
+
+.git{
+    @include cajas();
+    justify-content: space-around;
+    @include desktop() {
+        width: 30.2%;  
+    } 
+    @include tablet() {
+    width: 95%;
+    }   
+}
+/*PORTAFOLIO*/
+.portafolio-section{
+    width: 90%;
+    background: $blanco;
+    margin: auto;
+    margin-top: 20px;
+    padding: 1.2em;
+    h3{
+        color: $indigoHeader;
+    }
+}
+/*FORMULARIO*/
+.form{
+    width: 40%;
+    position: fixed;
+    background: $blanco; 
+    margin: 20px  auto;
+    box-shadow: 3px 3px 3px 4px rgba($black, .3);
+    padding: 20px 0px 0px 0px;
+    position: absolute;
+    left: -120%;
+    
+    border-radius: 0px 0 10px 10px;
+    @include desktop(){
+        top: 15%;
+        width: 50%;
+        padding: 5px 0px 0px 0px;
+    }
+        @include tablet() {
+        width: 91%;
+        }
+        
+    .encabezado{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+        h3{
+            color: $indigoHeader;
+            margin-left: 20px;
+        }
+        p{
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            &:hover{
+                color: red;
+            }
+        }
+
+    }  
+    form{
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        
+        input[type="text"]{
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 1.2em; 
+            outline: none;
+            border: none;
+            border-bottom: 1px solid rgba($black, .4);
+            font-size: 1em;
+            &:focus{
+                border-bottom: 2px solid #26a69a;
+            }
+            @include tablet() {
+                width: 100%;
+                padding: .5em;
+                font-size: 15px;
+                }
+        }
+        textarea{
+            display: block;
+            width: 90%;
+            margin: 20px auto;
+            padding: .5em 1.2em ; 
+            outline: none;
+            border: none;
+            border-bottom: 1px solid rgba($black, .4);
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+           
+	        height: 50px;
+	        min-width: 90%;
+	        max-width: 90%;
+	        min-height:50px;
+	        max-height: 200px;
+	   
+            @include tablet() {
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+                padding: .5em;
+                font-size: 15px;
+                }
+            &:focus{
+                border-bottom: 2px solid #26a69a;
+            }
+        }
+        input[type="submit"]{
+            display: block;
+            width: 30%;
+            margin: 1em auto;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 15px;
+            background: $blanco;
+            border:2px solid $indigoHeader;
+            border-radius: 5px;
+            font-size: .9em;
+            @include tablet() {
+                width: 50%;
+               
+                }
+            &:hover{
+                cursor: pointer;
+                background: rgba($indigoHeader, .8);
+                color: $blanco;
+                border:1px solid rgba($black, 1);
+            }
+        }
+    }
+    .redes{
+        border-radius: 0px 0 10px 10px;
+        background: #333;
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        align-items: center;
+        .boton{
+            padding: 5px 9px;
+            display: inline-block;
+           
+            i{  
+                color: $blanco;
+            }
+            
+        }
+    }
+}
+.telefono{
+    color: $blanco;
+    i{
+        color: $blanco;
+    }
+}
+/*HOVER REDES*/
+.facebook:hover { background: #3b5998; }
+.twitter:hover {	background: #1da1f2; }
+.youtube:hover {	background: #cd201f; }
+.github:hover { background: #666666; }
+.instagram:hover { background:  radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+
